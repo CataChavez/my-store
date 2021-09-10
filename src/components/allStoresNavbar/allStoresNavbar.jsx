@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-const LoguedNavbar = () => {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+const AllStoresNavbar = () => {
+    return(
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          nombre emprendimiento{/*aqui debe leer el emprendimiento al que se logueo */}
+          Emprendimientos Locales
         </Link>
         <button
           className="navbar-toggler"
@@ -21,25 +21,19 @@ const LoguedNavbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/store/:id/products/">
-                Lista de productos
+              <Link className="nav-link active" aria-current="page" to="/loginstore">
+                LoginStore 
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/create">
-                Crear producto
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/HomeStore">
-                Volver a Emprendimiento
+              <Link className="nav-link active" aria-current="page" to="/">
+                Home
               </Link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  );
-};
-
-export default LoguedNavbar;
+    )
+}
+export default AllStoresNavbar;
