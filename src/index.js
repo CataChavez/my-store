@@ -6,14 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap'
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { storeIndex } from './store/storeIndex';
 
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={storeIndex}>
       <App />
     </Provider>
   </React.StrictMode>,

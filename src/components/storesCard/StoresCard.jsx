@@ -1,24 +1,40 @@
-
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchStoreStartThunk } from "../../store/stores/thunks";
+import { Link } from "react-router-dom";
 
 const StoresCard = () => {
-    return(
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-            <div className="col"> lista de tiendas
-                {/*<div>
+    const { data: stores, isLoading } = useSelector((state) => state.stores)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (isLoading === 'iddle')
+        dispatch(fetchStoreStartThunk())
+    }, [isLoading, dispatch])
+
+
+      return(
+        
+        <div className="container">
+            <div className="row row-cols-md-3 g-4">
                     {stores.map((store) => (
-                    < div className="card h-100" key={store._id}>
-                        <div className="card-header d-flex justify-content-between">
+                <div className="col-md-4 p-4" key={store.id}>
+                    <div className="card" >
+                        <img className="card-img-top img-fluid" src={store.store_img}/>                            
+                        <div className="card-body">
+                        <div>
                             <h5>{store.store_name}</h5>
                         </div>
-                        <div className="card-img">
-                        </div>
-                        <div className="card-body">
-                            <p>Contacto: {store.email}</p>                           
+                            <p className="text-muted">Contacto: {store.email}</p>                           
+                        </div>                        
+                        <div className="card-footer">
+                            <Link to={`/store/${store.id}/products`}className="btn btn-primary">
+                                Ver Productos                         
+                            </Link>
                         </div>                        
                     </div>                    
+                    </div>
                     ))}
-                    </div>    */} 
-
             </div>
         </div>
     )

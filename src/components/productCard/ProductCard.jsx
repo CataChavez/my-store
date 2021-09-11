@@ -1,23 +1,44 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProductsStartThunk } from "../../store/products/thunks";
+
+
 const ProductCard = () => {
+    const { dataProducts: products, isLoading } = useSelector(state => state.products)
+    const dispatch = useDispatch()
+   
+
+    useEffect(() => {
+        if (isLoading === 'iddle')
+            dispatch(fetchProductsStartThunk())
+        
+    }, [isLoading, dispatch])
+
     return(
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-            <div className="col"> lista de productos
-                {/*<div>
-                    {stores.map((store) => (
-                    < div className="card h-100" key={store._id}>
-                        <div className="card-header d-flex justify-content-between">
-                            <h5>{store.store_name}</h5>
-                        </div>
-                        <div className="card-img">
-                        </div>
+        
+        <div className="container">
+            <div className="row row-cols-md-3 g-4">
+                    {products.map((product) => (
+                <div className="col-md-4 p-4">
+                    <div className="card" key={product.id}>
+                        <img className="card-img-top img-fluid" src={product.product_img} alt-text="product image"/>                            
                         <div className="card-body">
-                            <p>Contacto: {store.email}</p>                           
+                        <div>
+                            <h5>{product.product_name}</h5>
+                        </div>
+                            <p className="text-muted">Descripción {product.description}</p>                           
+                        </div>                        
+                        <div className="card-footer">
+                            <p>Stock:{product.stock}</p>
+                        </div>                        
+                        <div className="card-footer">
+                            <p>Precio: ${product.price}</p>
                         </div>                        
                     </div>                    
+                    </div>
                     ))}
-                    </div>    */} 
             </div>
-        </div>
+        </div> 
     )
 }
 

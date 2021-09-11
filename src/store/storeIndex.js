@@ -7,4 +7,4 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 const middlewares = [thunk];
 const middlewareEnhancer = applyMiddleware(...middlewares);
 
-export const store = createStore(rootReducer, composeWithDevTools(middlewareEnhancer));
+export const storeIndex = createStore(rootReducer, composeWithDevTools(middlewareEnhancer));
