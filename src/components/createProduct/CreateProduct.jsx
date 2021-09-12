@@ -1,6 +1,3 @@
-import { createProductStartThunk } from "../../store/products/thunks";
-import { useDispatch, useState } from "react";
-
 
 const CreateProduct = () => {
     return (  

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const StoresCard = () => {
     const { data: stores, isLoading } = useSelector((state) => state.stores)
     const dispatch = useDispatch()
-
+    
     useEffect(() => {
         if (isLoading === 'iddle')
         dispatch(fetchStoreStartThunk())
@@ -18,7 +18,7 @@ const StoresCard = () => {
         <div className="container">
             <div className="row row-cols-md-3 g-4">
                     {stores.map((store) => (
-                <div className="col-md-4 p-4" key={store.id}>
+                <div className="col-md-4 p-4" key={store.id} name="id">
                     <div className="card" >
                         <img className="card-img-top img-fluid" src={store.store_img}/>                            
                         <div className="card-body">
@@ -28,7 +28,7 @@ const StoresCard = () => {
                             <p className="text-muted">Contacto: {store.email}</p>                           
                         </div>                        
                         <div className="card-footer">
-                            <Link to={`/store/${store.id}/products`}className="btn btn-primary">
+                            <Link to={`/store/${store.id}/products`} className="btn btn-primary">
                                 Ver Productos                         
                             </Link>
                         </div>                        

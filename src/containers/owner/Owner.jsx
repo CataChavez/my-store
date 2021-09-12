@@ -10,11 +10,11 @@ const Owner = () => {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-7">
-                    <Route path="/owner"><ProductListTable /></Route>
+                    <Route path="/owner/:id"><ProductListTable /></Route>
                     
                 </div>
                 <div className="col-5">
-                    <Route path="/owner"><CreateProduct /></Route>
+                    <Route path="/owner/:id"><CreateProduct /></Route>
                 </div>
             </div>
         </div>

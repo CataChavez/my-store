@@ -15,13 +15,13 @@ import {
 } from './actions';
 
 //Fetch
-export const fetchProductsStartThunk = () => {
+export const fetchProductsStartThunk = (id) => {
     return async (dispatch, getState) => {
-        const { stores } = getState();
-        if ( stores.data.length > 1 ){ return }
+        const { products } = getState()
+        if ( products.dataProducts.length > 0 ){ return }
         dispatch(fetchProductsStart());
         try {
-            const response = await fetch("http://localhost:4000/products", {
+            const response = await fetch(`http://localhost:4000/store/${id}/products`, {
                 method:"GET"
             });
             const dataProducts = await response.json();
@@ -42,7 +42,7 @@ export const deleteProductStartThunk = (id) => {
             const response = await fetch(`http://localhost:4000/products/${id}`, {
                 method: 'DELETE'
             })
-            const data = await response.json();
+            const dataProducts = await response.json();
             dispatch(deleteProductSuccess(id))
         } catch (error) {
             dispatch(deleteProductFailure(error.message))
@@ -64,8 +64,8 @@ export const createProductStartThunk = (product) => {
             const res = await fetch("http://localhost:4000/products",
                 requestOptions
             )
-            const data = await res.json()
-            dispatch(createProductSuccess(data))
+            const dataProducts = await res.json()
+            dispatch(createProductSuccess(dataProducts))
         } catch (error){
             dispatch(createProductFailure(error.message));
         }
@@ -81,11 +81,11 @@ export const updateProductStartThunk = (product) => {
                 headers: { "Content-Type": "application/json; charset=UTF-8" },
                 body: JSON.stringify(product),
             };
-            const res = await fetch(`http://localhost:4000/products${product.id}`,
+            const res = await fetch(`http://localhost:4000/products/${product.id}`,
                 requestOptions
             )
-            const data = await res.json()
-            dispatch(updateProductSuccess(data))
+            const dataProducts = await res.json()
+            dispatch(updateProductSuccess(dataProducts))
         } catch (error){
             dispatch(updateProductFailure(error.message));
         }

@@ -9,7 +9,7 @@ const AllStores = () => {
         <Router>
         <Switch>
 
-            <Route exact path="/store/:id/products" component={ProductCard}></Route>
+            <Route exact path="/store/:id/products"><ProductCard/></Route>
             <Route exact path="/" component={StoresCard}></Route>
             
             <Route exact path="/login">{LoginForm}</Route>            

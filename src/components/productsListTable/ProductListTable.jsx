@@ -2,17 +2,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchProductsStart } from '../../store/products/actions';
 import React, { useEffect } from "react";
-import { storeLoginSelector } from '../../store/login/selectors';
-
-
+import { useParams } from "react-router";
 
 const ProductListTable= () => {
-    
+    const { id } = useParams()
     const { dataProducts: products, iLoading } = useSelector((state) => state.products)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchProductsStart())
+        dispatch(fetchProductsStart(id))
     }, [iLoading, dispatch])
 
     return(

@@ -14,7 +14,7 @@ function App() {
         <AllStoresNavbar />
         <Switch>
           <Route path="/" exact><AllStores/></Route>
-          <Route path="/owner" exact><Owner/></Route>
+          <Route path="/owner/:id" exact><Owner/></Route>
           <Route path="/owner/product/edit/:id"><EditProduct/></Route>
           <Route path="/owner/product/delete/:id"><DeleteProduct/></Route>
         </Switch>
