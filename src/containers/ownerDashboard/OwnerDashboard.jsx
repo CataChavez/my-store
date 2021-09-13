@@ -2,7 +2,8 @@ import ProductListTable from '../../components/productsListTable/ProductListTabl
 import CreateProduct from '../../components/createProduct/CreateProduct'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const Owner = () => {
+
+const OwnerDashboard = () => {
 
     return(
         <Router>
@@ -10,17 +11,18 @@ const Owner = () => {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-7">
-                    <Route path="/owner/:id"><ProductListTable /></Route>
+                    <Route path="/owner/:id" exact><ProductListTable /></Route>
                     
                 </div>
                 <div className="col-5">
-                    <Route path="/owner/:id"><CreateProduct /></Route>
+                    <Route path="/owner/:id" exact><CreateProduct /></Route>
                 </div>
             </div>
         </div>
         </Switch>
+
         </Router>
 
     )
 }
-export default Owner;
+export default OwnerDashboard;
