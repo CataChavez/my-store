@@ -1,8 +1,15 @@
 import { LOGIN_STORE_ERROR, LOGIN_STORE_INIT, LOGIN_STORE_SUCCESS } from "./types";
-import { initialState } from '../initialState'
+
+const initialStore = {
+  data: {},
+  error: null,
+  success: null,
+  loading: false,
+};
 
 
-export const loginReducer = (prevState = initialState, action) => {
+
+export const loginReducer = (prevState = initialStore, action) => {
   switch (action.type) {
     case LOGIN_STORE_INIT:
       return {...prevState,
@@ -10,7 +17,7 @@ export const loginReducer = (prevState = initialState, action) => {
       };
     case LOGIN_STORE_SUCCESS:
       return {...prevState, 
-        dataStore: action.payload,
+        data: action.payload,
         error: false,
         success: true,
         loading: false,

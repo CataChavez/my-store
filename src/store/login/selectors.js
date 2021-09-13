@@ -1,3 +1,1 @@
-export const storeLoginSelector = ({ user }) => {
-    return user;
-};
+export const userLoginSelector = state => state

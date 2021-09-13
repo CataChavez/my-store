@@ -2,7 +2,7 @@ export const initialState = {
     isLoading:'iddle',
     data: [],
     dataProducts: [],
-    dataStore: [],
+    dataStore: {},
     errorMessage: null,
     message:null
 }

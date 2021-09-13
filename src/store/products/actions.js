@@ -11,11 +11,14 @@ import {
     UPDATE_PRODUCT_FAILURE,
     UPDATE_PRODUCT_SUCCESS,
     UPDATE_PRODUCT_REQUEST,
+    FETCH_USER_PRODUCTS_START,
+    FETCH_USER_PRODUCTS_SUCCESS,
+    FETCH_USER_PRODUCTS_FAILURE,
 } from './constants';
 
 import { storeIndex } from '../storeIndex'
 
-//fetch
+//fetch productos publicos
 export const fetchProductsStart = () => ({
     type: FETCH_PRODUCTS_START,
 });
@@ -29,6 +32,22 @@ export const fetchProductsFailure = (errorMessage) => ({
     type: FETCH_PRODUCTS_FAILURE,
     payload: errorMessage,
 });
+
+//fetch productos de cada tienda
+export const fetchUserProductsStart = () => ({
+    type: FETCH_USER_PRODUCTS_START,
+});
+
+export const fetchUserProductsSucces = (products) => ({
+    type: FETCH_USER_PRODUCTS_SUCCESS,
+    payload: products,
+});
+
+export const fetchUserProductsFailure = (errorMessage) => ({
+    type: FETCH_USER_PRODUCTS_FAILURE,
+    payload: errorMessage,
+});
+
 
 //delete
 export const deleteProductStart = () => ({
