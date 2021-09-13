@@ -1,7 +1,7 @@
 import {
     fetchProductsFailure,
     fetchProductsStart,
-    fetchProductsSucces,
+    fetchProductsSuccess,
     deleteProductFailure,
     deleteProductStart,
     deleteProductSuccess,
@@ -18,14 +18,13 @@ import {
 export const fetchProductsStartThunk = (id) => {
     return async (dispatch, getState) => {
         const { products } = getState()
-        if ( products.dataProducts.length > 0 ){ return }
         dispatch(fetchProductsStart());
         try {
             const response = await fetch(`http://localhost:4000/store/${id}/products`, {
                 method:"GET"
             });
             const dataProducts = await response.json();
-            dispatch(fetchProductsSucces(dataProducts));
+            dispatch(fetchProductsSuccess(dataProducts));
             console.log(dataProducts)
             }
         catch (error){

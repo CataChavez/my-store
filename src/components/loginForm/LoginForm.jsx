@@ -25,7 +25,7 @@ export const LoginForm = ({ isLoading }) => {
   }
 
   const cb = (userId) => {
-    history.push(`/owner/${userId}/dashboard`)
+    history.push(`/owner/${userId}`)
   }
 
     const handlerSubmit = useCallback(

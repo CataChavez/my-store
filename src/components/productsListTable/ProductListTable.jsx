@@ -5,13 +5,15 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 const ProductListTable= () => {
-    const { id } = useParams()
-    const { dataProducts: products, iLoading } = useSelector((state) => state.products)
-    const dispatch = useDispatch()
+  const { id } = useParams()
+ 
+  const { dataProduct: products, isLoading } = useSelector((state) => state.products)
+  const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchProductsStart(id))
-    }, [iLoading, dispatch])
+      dispatch(fetchProductsStart(id))
+      debugger
+    }, [isLoading, dispatch])
 
     return(
         <div className="container p-2">
@@ -25,7 +27,7 @@ const ProductListTable= () => {
             <th scope="col">Acciones</th>
           </tr>
         </thead>
-        {products.length > 0 &&
+        {products?.length > 0 &&
           products.map((product) => (
             <tbody key={product.id}>
               <tr>                    
@@ -39,6 +41,8 @@ const ProductListTable= () => {
                       Edit
                     </button>
                   </Link>
+                </td>
+                <td>
                   <Link to={`/products/delete/${product._id}`}>
                     <button className="btn btn-danger btn-small">
                       Delete

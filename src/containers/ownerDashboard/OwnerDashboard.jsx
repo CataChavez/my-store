@@ -11,11 +11,11 @@ const OwnerDashboard = () => {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-7">
-                    <Route path="/owner/:id" exact><ProductListTable /></Route>
+                    <Route path="/owner/:id/dashboard" exact><ProductListTable /></Route>
                     
                 </div>
                 <div className="col-5">
-                    <Route path="/owner/:id" exact><CreateProduct /></Route>
+                    <Route path="/owner/:id/dashboard" exact><CreateProduct /></Route>
                 </div>
             </div>
         </div>
