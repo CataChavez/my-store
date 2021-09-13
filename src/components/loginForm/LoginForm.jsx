@@ -1,20 +1,22 @@
-import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { storeLogin } from "../../store/login/actions";
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 
 
-const LoginForm = () => {
+export const LoginForm = ({ isLoading }) => {
+  const userId = useSelector(state => state.login.data.id)
+  const history = useHistory()
+ 
   const [form, setForm] = useState({
     email: "",
     password:""
   });
   
   const dispatch = useDispatch()
-  const history = useHistory()
 
-  const handlerInputChange = async (event) => {
+  const handlerInputChange = (event) => {
     const target = event.target;
     setForm({
       ...form,
@@ -22,19 +24,18 @@ const LoginForm = () => {
     })
   }
 
-  const handlerSubmit = useCallback(
-    (event) => {
-      event.preventDefault();
-      dispatch(storeLogin(form));
-    },
-    [dispatch, form]
-  )
-
-  const handlerView = () => {
-    history.push('/owner')
+  const cb = (userId) => {
+    history.push(`/owner/${userId}/dashboard`)
   }
 
-  return (
+    const handlerSubmit = useCallback(
+      (event) => {
+        event.preventDefault();
+        dispatch(storeLogin(form, cb));
+
+    },[dispatch, form])
+  
+    return (
     <div className="container">
     <div className="row justify-content-around p-5">
       <div className="col-md-6 p-2">
@@ -45,7 +46,7 @@ const LoginForm = () => {
               <input
               id="email"
               name="email" 
-              className="form-control"
+              className="form-control email"
               placeholder="contacto@manolospizza.com"
               onChange={handlerInputChange}
               value={form.email}
@@ -65,12 +66,12 @@ const LoginForm = () => {
             </div>
             <div >
               <button
-              onClick={handlerView}
               id="buttonSubmit" 
               type="submit" 
               className="btn btn-primary"
+              disabled={isLoading}
               >
-                Login
+                {isLoading ? "Loading..." : "Submit"}
               </button>
             </div>
           </form>
