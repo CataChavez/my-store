@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchStoreStartThunk } from "../../store/stores/thunks";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const StoresCard = () => {
     const { data: stores, isLoading } = useSelector((state) => state.stores)
@@ -11,9 +12,7 @@ const StoresCard = () => {
         if (isLoading === 'iddle')
         dispatch(fetchStoreStartThunk())
     }, [isLoading, dispatch])
-
-
-      return(
+    return(
         
         <div className="container">
             <div className="row row-cols-md-3 g-4">
