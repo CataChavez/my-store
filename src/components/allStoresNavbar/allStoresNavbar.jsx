@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const AllStoresNavbar = () => {
+
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -22,7 +23,7 @@ const AllStoresNavbar = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/login">
-                Owner 
+                Login Owner 
               </Link>
             </li>
             <li className="nav-item">
