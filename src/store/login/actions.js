@@ -1,7 +1,6 @@
 import { LOGIN_STORE_ERROR, LOGIN_STORE_INIT, LOGIN_STORE_SUCCESS } from "./types";
 
 export const storeLogin = ({ email, password }, cb) => {
-  
   return (dispatch, getState) => {
     dispatch({ type: LOGIN_STORE_INIT });
     console.log(email, password)
@@ -24,6 +23,7 @@ export const storeLogin = ({ email, password }, cb) => {
           email,
           password,
         }),
+        
       }).then((response)=>{
         return response.json()
       }).then((data)=>{

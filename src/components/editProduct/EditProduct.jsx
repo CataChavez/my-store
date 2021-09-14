@@ -1,4 +1,7 @@
+
+
 const EditProduct = () => {
+  
     return (  
         <div className="container">
             <div className="col-md-6 p-2">

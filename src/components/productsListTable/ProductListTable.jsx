@@ -5,15 +5,10 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 const ProductListTable= () => {
-  const { id } = useParams()
- 
+  const id = useSelector(state => state.login.data.id)
   const { dataProduct: products, isLoading } = useSelector((state) => state.products)
-  const dispatch = useDispatch()
 
-    useEffect(() => {
-      dispatch(fetchProductsStart(id))
-      debugger
-    }, [isLoading, dispatch])
+  const dispatch = useDispatch()
 
     return(
         <div className="container p-2">
@@ -25,6 +20,7 @@ const ProductListTable= () => {
             <th scope="col">Stock</th>
             <th scope="col">Precio</th>
             <th scope="col">Acciones</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         {products?.length > 0 &&

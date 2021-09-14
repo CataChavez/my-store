@@ -8,13 +8,13 @@ import { useSelector } from "react-redux";
 export const LoginForm = ({ isLoading }) => {
   const userId = useSelector(state => state.login.data.id)
   const history = useHistory()
+  const dispatch = useDispatch()
  
   const [form, setForm] = useState({
     email: "",
     password:""
   });
   
-  const dispatch = useDispatch()
 
   const handlerInputChange = (event) => {
     const target = event.target;
