@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Redirect, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import ContextLogin from "../../store/login/context";
 
 
 
-const PrivateRoute = ({component: Component, isLogin, ...Rest}) => {
-  //const isLogin = useSelector((state) => state.login.isLogin)
-  return isLogin ? <Route {...Rest} render={routeProps=><Component {...routeProps}/>}  /> : <Redirect to={`/login`} />;
+const PrivateRoute = ({component: Component, ...Rest}) => {
+  const contextLogin = useContext(ContextLogin)
+  return contextLogin.isLogin ? (
+    <Route 
+      {...Rest} 
+      render={routeProps => (
+        <Component {...routeProps} />
+        )}
+      />
+    )  
+    : <Redirect to='/' />;
 };
 export default PrivateRoute;

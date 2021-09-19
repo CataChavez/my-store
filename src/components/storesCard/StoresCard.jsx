@@ -2,16 +2,22 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchStoreStartThunk } from "../../store/stores/thunks";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router";
+
 
 const StoresCard = () => {
     const { data: stores, isLoading } = useSelector((state) => state.stores)
+    const { dataProduct: publicProducts } = useSelector(state => state.publicProducts)
+    
+
     const dispatch = useDispatch()
     
     useEffect(() => {
         if (isLoading === 'iddle')
-        dispatch(fetchStoreStartThunk())
+        dispatch(fetchStoreStartThunk())        
     }, [isLoading, dispatch])
+
+    
+    
     return(
         
         <div className="container">

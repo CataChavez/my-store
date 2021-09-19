@@ -3,32 +3,34 @@ import { useState } from "react"
 import { createProductStartThunk } from "../../store/products/thunks"
 import { useHistory } from "react-router"
 
-
 const CreateProduct = () => {
-  const storeId = useSelector(state => state.login.data.id)
+  const storeId = useSelector(state => state.login.data.storeId)
   const [product_name, setProductName] = useState("")
   const [description, setDescription] = useState("")
   const [price, setPrice] = useState("")
   const [stock, setStock] = useState("")
   const [product_img, setProductImg] = useState("")
+  const dispatch = useDispatch();
   const history = useHistory()
-  
-  const dispatch = useDispatch()
-  debugger
+
   const handlerOnCreate = (event) => {
     event.preventDefault()
     dispatch(createProductStartThunk({ 
-      product_name: product_name, 
-      description: description, 
-      price: price, 
-      stock: stock, 
-      product_img: product_img, 
-      storeId: storeId 
+      product_name,
+      description,
+      price,
+      stock,
+      product_img,
+      storeId
     }))
-    history.push(`/owner/${storeId}/dashboard`)
+    history.push('/owner/dashboard')
   }
+  
+ 
     return (  
-        <div className="col-md-12 p-1">
+        <div className="container-md">
+          <div className="">
+          <div className="col-6 p-1">
           <div className="card card-body">
             <h3 className="text-center">Crear un nuevo Producto</h3>
             <form>
@@ -55,7 +57,7 @@ const CreateProduct = () => {
               <div className="mb-2">
                 <label className="form-label">Precio</label>
                 <input 
-                type="number" 
+                type="text" 
                 name="price"
                 className="form-control"
                 value={price}
@@ -65,7 +67,7 @@ const CreateProduct = () => {
               <div className="mb-2">
                 <label className="form-label">Stock</label>
                 <input 
-                type="number" 
+                type="text" 
                 className="form-control" 
                 name="stock"
                 value={stock}
@@ -77,16 +79,17 @@ const CreateProduct = () => {
                 <input 
                 type="text" 
                 className="form-control"
-                name="productImg"
-                name="http://...."
+                name="product_Img"
                 value={product_img}
                 onChange={event => setProductImg(event.target.value)}
                 />
               </div>
-              <button onChange={handlerOnCreate} type="submit" className="btn btn-primary">
+              <button onClick={handlerOnCreate} type="submit" className="btn btn-primary">
                 Agregar
               </button>
             </form>
+          </div>
+        </div>
           </div>
         </div>
     )

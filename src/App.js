@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useSelector } from "react-redux"
 import './App.css';
 import AllStoresNavbar from './components/allStoresNavbar/AllStoresNavbar';
 import EditProduct from './components/editProduct/EditProduct';
@@ -13,7 +12,6 @@ import ProductListTable from './components/productsListTable/ProductListTable'
 import CreateProduct from './components/createProduct/CreateProduct'
 
 function App() {
-  const success = useSelector(state => state.login.success)
   return (
     <div className="App">
       <Router>
@@ -22,24 +20,15 @@ function App() {
           <Route path="/" exact><StoresCard/></Route>    
           <Route path="/store/:id/products" exact><ProductCard/></Route>
           
-          <Route path="/login" exact><LoginForm /></Route>
-
-          <PrivateRoute path="/owner/:id/dashboard" exact isLogin={success}>
-            <Login />   
-            <div className="container-md">
-              <div className="row justify-content-md-center ">
-                <div className="col-7">
-                  <ProductListTable />
-                </div>
-                <div className="col-md-auto">
-                  <CreateProduct />
-                </div>
-              </div>
-            </div>
+          <Route path="/login" exact component={LoginForm}></Route>
+        
+          <PrivateRoute path="/owner/dashboard"> 
+            <Login />
+            <ProductListTable />    
           </PrivateRoute>
-
-          <PrivateRoute path="/owner/:id/dashboard/edit/product/:productId" exact component={EditProduct} isLogin={success}/>
-          <PrivateRoute path="/owner/:id/dashboard/delete/product/:productId" exact component={DeleteProduct} isLogin={success}/>
+          <PrivateRoute path="/owner/create" exact component={CreateProduct} />
+          <PrivateRoute path="/owner/edit/:id" exact  component={EditProduct} />
+          <PrivateRoute path="/owner/delete/:id" exact  component={DeleteProduct} />
 
         </Switch>
       </Router>

@@ -1,4 +1,7 @@
-import { LOGIN_STORE_ERROR, LOGIN_STORE_INIT, LOGIN_STORE_SUCCESS } from "./types";
+import { LOGIN_STORE_ERROR, 
+  LOGIN_STORE_INIT, 
+  LOGIN_STORE_SUCCESS, 
+} from "./types";
 
 const initialStore = {
   data: {},

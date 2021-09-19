@@ -1,26 +1,26 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
-import { fetchProductsStartThunk } from "../../store/products/thunks";
+import { fetchPublicProductsStartThunk } from "../../store/publicProducts/thunks";
 
 
 const ProductCard = () => {
     const { id } = useParams()
-    const { dataProduct: products, isLoading } = useSelector(state => state.products)
+    const { dataProduct: publicProducts, isLoading } = useSelector(state => state.publicProducts)
     const dispatch = useDispatch()
-   
+  
 
     useEffect(() => {
         if (isLoading === 'iddle')
-        dispatch(fetchProductsStartThunk(id))        
-    }, [isLoading, dispatch])
+        dispatch(fetchPublicProductsStartThunk(id))        
+    }, [isLoading, dispatch, id])
 
     return(
         
         <div className="container">
             <div className="row row-cols-md-3 g-4">
                    
-                    {products?.map((product) => (
+                    {publicProducts?.map((product) => (
                 <div className="col-md-4 p-4">
                     <div className="card" key={product.id}>
                         <img className="card-img-top img-fluid" src={product.product_img} alt-text="product image"/>                            

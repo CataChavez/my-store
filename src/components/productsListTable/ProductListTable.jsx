@@ -1,16 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchProductsStart } from '../../store/products/actions';
+import { fetchProductsStartThunk } from '../../store/products/thunks';
 import React, { useEffect } from "react";
-import { useParams } from "react-router";
 
 const ProductListTable= () => {
+  //const id = useParams()
   const id = useSelector(state => state.login.data.id)
-  const { dataProduct: products, isLoading } = useSelector((state) => state.products)
-
+  const { dataProduct: products } = useSelector((state) => state.products)
   const dispatch = useDispatch()
 
-    return(
+  useEffect(() => {
+    dispatch(fetchProductsStartThunk(id))
+  }, [dispatch, id])
+
+  return(
         <div className="container p-2">
             <table className="table table-light">
         <thead>
@@ -32,17 +35,13 @@ const ProductListTable= () => {
                 <td>{product.stock}</td>
                 <td>{product.price}</td>
                 <td>
-                  <Link to={`/products/update/${product.id}`}>
-                    <button className="btn btn-warning btn-small">
-                      Edit
-                    </button>
+                  <Link to={`/owner/edit/${product.id}`} className="btn btn-warning btn-small">
+                    Edit
                   </Link>
                 </td>
                 <td>
-                  <Link to={`/products/delete/${product._id}`}>
-                    <button className="btn btn-danger btn-small">
-                      Delete
-                    </button>
+                  <Link to={`/owner/delete/${product.id}`} className="btn btn-danger btn-small">
+                    Delete
                   </Link>
                 </td>
               </tr>

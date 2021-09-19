@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 
 export const LoginForm = ({ isLoading }) => {
-  const userId = useSelector(state => state.login.data.id)
   const history = useHistory()
   const dispatch = useDispatch()
  
@@ -24,8 +23,8 @@ export const LoginForm = ({ isLoading }) => {
     })
   }
 
-  const cb = (userId) => {
-    history.push(`/owner/${userId}/dashboard`)
+  const cb = () => {
+    history.push(`/owner/dashboard`)
   }
 
     const handlerSubmit = useCallback(

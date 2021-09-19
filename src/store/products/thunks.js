@@ -25,7 +25,7 @@ export const fetchProductsStartThunk = (id) => {
             });
             const dataProducts = await response.json();
             dispatch(fetchProductsSuccess(dataProducts));
-            console.log(dataProducts)
+
             }
         catch (error){
             dispatch(fetchProductsFailure(error.message));
@@ -51,30 +51,29 @@ export const deleteProductStartThunk = (id) => {
 }
 
 //Create
-export const createProductStartThunk = (product_name, description, price, stock, product_img, storeId) => { 
-    debugger
+export const createProductStartThunk = ({ product_name, description, price, stock, product_img, storeId }) => { 
     const product = { product_name, description, price, stock, product_img, storeId }
-    return async (dispatch, getState) => {
-        dispatch(createProductRequest());
-        try {
-            const requestOptions = {
-                method: "POST",
-                headers: { "Content-Type": "application/json; charset=UTF-8",
-                'Authorization':`Bearer ${localStorage.accessToken}`
-                },
+    console.log(product)
+    return async (dispatch) => {
+            dispatch(createProductRequest());
+            try {
+                const requestOptions = {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json; charset=UTF-8" },
                 body: JSON.stringify(product) 
             };
             const res = await fetch("http://localhost:4000/products", requestOptions)
             const dataProducts = await res.json()
             dispatch(createProductSuccess(dataProducts))
-            
+                 
         } catch (error){
             dispatch(createProductFailure(error.message));
+        
         }
     }
 }
 //update
-export const updateProductStartThunk = ({ product_name, description, price, stock, product_img, storeId }) => { 
+export const updateProductStartThunk = ({id, product_name, description, price, stock, product_img, storeId }) => { 
     const product = { product_name, description, price, stock, product_img, storeId }
     return async (dispatch) => {
         dispatch(updateProductRequest());
@@ -82,11 +81,9 @@ export const updateProductStartThunk = ({ product_name, description, price, stoc
             const requestOptions = {
                 method: "PUT",
                 headers: { "Content-Type": "application/json; charset=UTF-8", },
-                body: JSON.stringify({ product 
-                
-                }),
+                body: JSON.stringify(product),
             };
-            const res = await fetch(`http://localhost:4000/products/${product.storeId}`,
+            const res = await fetch(`http://localhost:4000/products/${id}`,
                 requestOptions
             )
 
