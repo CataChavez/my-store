@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from "react-router"
+import { logout } from "../../store/login/actions"
 import { fetchProductsStartThunk } from "../../store/products/thunks"
 
 export const Login = () => {
@@ -11,7 +12,7 @@ export const Login = () => {
 
   useEffect(() => {
     dispatch(fetchProductsStartThunk(id))
-  }, [id])
+  }, [dispatch, id])
 
   /*   const handlerOnClick = (event) => {
     event.preventDefault()
@@ -19,7 +20,7 @@ export const Login = () => {
   } */
   const handlerLogout = (event) => {
     event.preventDefault()
-    localStorage.removeItem('accessToken')
+    dispatch(logout)
     history.push('/')
   }
 
@@ -42,7 +43,6 @@ export const Login = () => {
                         <div className="col-2">
                           <button onClick={handlerCreate} className="btn btn-secondary">Crear Producto</button>
                         </div>
-                        {/* <button onClick ={handlerOnClick} className="btn btn-primary">Ir al Dashboard</button> */}
                       </div>
                     </div>
                 </div>

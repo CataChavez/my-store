@@ -2,13 +2,11 @@ import React, { useContext } from "react";
 import { Redirect, Route } from "react-router-dom";
 import ContextLogin from "../../store/login/context";
 
-
-
-const PrivateRoute = ({component: Component, ...Rest}) => {
+const PrivateRoute = ({component: Component, ...rest}) => {
   const contextLogin = useContext(ContextLogin)
   return contextLogin.isLogin ? (
     <Route 
-      {...Rest} 
+      {...rest} 
       render={routeProps => (
         <Component {...routeProps} />
         )}

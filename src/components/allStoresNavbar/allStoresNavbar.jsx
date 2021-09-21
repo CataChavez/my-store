@@ -1,7 +1,4 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import PrivateRoute from "../privateRoute/PrivateRoute";
-
 const AllStoresNavbar = () => {
 
     return(
@@ -24,16 +21,14 @@ const AllStoresNavbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link" aria-current="page" to="/login">
-                Login 
+              <Link className="nav-link" to="/login">
+                Login              
               </Link>
             </li>
             <li className="nav-item">
-              <PrivateRoute>
-                <Link className="nav-link" aria-current="page" to="/owner/dashboard">
-                  Owner Dashboard 
-                </Link>
-              </PrivateRoute>
+              <Link className="nav-link" aria-current="page" to="/owner/dashboard" >
+                Owner Dashboard 
+              </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" aria-current="page" onClick={() => {window.location.href="/"}}>

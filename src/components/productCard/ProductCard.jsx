@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { fetchPublicProductsStartThunk } from "../../store/publicProducts/thunks";
 
-
 const ProductCard = () => {
     const { id } = useParams()
     const { dataProduct: publicProducts, isLoading } = useSelector(state => state.publicProducts)

@@ -2,3 +2,4 @@ const LOGIN_STORE = 'LOGIN_STORE';
 export const LOGIN_STORE_INIT = `${LOGIN_STORE}_INIT`;
 export const LOGIN_STORE_SUCCESS = `${LOGIN_STORE}_SUCCESS`;
 export const LOGIN_STORE_ERROR = `${LOGIN_STORE}_ERROR`;
+export const LOGOUT = `LOGOUT`;

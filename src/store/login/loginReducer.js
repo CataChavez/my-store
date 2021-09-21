@@ -1,6 +1,7 @@
 import { LOGIN_STORE_ERROR, 
   LOGIN_STORE_INIT, 
-  LOGIN_STORE_SUCCESS, 
+  LOGIN_STORE_SUCCESS,
+  LOGOUT 
 } from "./types";
 
 const initialStore = {
@@ -31,6 +32,10 @@ export const loginReducer = (prevState = initialStore, action) => {
         success: false,
         loading: false,
       };
+    case LOGOUT:
+      return {...prevState,
+        success: false,
+      }
     default:
       return prevState;
   }

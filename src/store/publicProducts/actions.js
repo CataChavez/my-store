@@ -4,8 +4,6 @@ import {
     FETCH_PUBLIC_PRODUCTS_FAILURE,
 } from './constants';
 
-import { storeIndex } from '../storeIndex'
-
 //fetch productos publicos
 export const fetchPublicProductsStart = () => ({
     type: FETCH_PUBLIC_PRODUCTS_START,

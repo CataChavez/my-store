@@ -46,3 +46,7 @@ export const storeLogin = ({ email, password }, cb) => {
   };
 };
 
+export const logout = () => {
+  localStorage.removeItem('accessToken')
+}
+

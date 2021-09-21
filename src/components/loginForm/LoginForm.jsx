@@ -2,8 +2,6 @@ import { useDispatch } from "react-redux";
 import { useState, useCallback } from "react";
 import { storeLogin } from "../../store/login/actions";
 import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
-
 
 export const LoginForm = ({ isLoading }) => {
   const history = useHistory()

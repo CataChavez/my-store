@@ -10,8 +10,12 @@ import ProductCard from './components/productCard/ProductCard';
 import StoresCard from './components/storesCard/StoresCard';
 import ProductListTable from './components/productsListTable/ProductListTable'
 import CreateProduct from './components/createProduct/CreateProduct'
+import {useSelector} from 'react-redux'
+
 
 function App() {
+  const isLogin = useSelector(state => state.login.success)
+
   return (
     <div className="App">
       <Router>
@@ -22,13 +26,13 @@ function App() {
           
           <Route path="/login" exact component={LoginForm}></Route>
         
-          <PrivateRoute path="/owner/dashboard"> 
+          <PrivateRoute path="/owner/dashboard" isLogin={isLogin}> 
             <Login />
             <ProductListTable />    
           </PrivateRoute>
-          <PrivateRoute path="/owner/create" exact component={CreateProduct} />
-          <PrivateRoute path="/owner/edit/:id" exact  component={EditProduct} />
-          <PrivateRoute path="/owner/delete/:id" exact  component={DeleteProduct} />
+          <PrivateRoute path="/owner/create" exact isLogin={isLogin} component={CreateProduct} />
+          <PrivateRoute path="/owner/edit/:id" exact isLogin={isLogin}  component={EditProduct} />
+          <PrivateRoute path="/owner/delete/:id" exact isLogin={isLogin} component={DeleteProduct}  />
 
         </Switch>
       </Router>
