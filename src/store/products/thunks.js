@@ -20,7 +20,7 @@ export const fetchProductsStartThunk = (id) => {
         const { products } = getState()
         dispatch(fetchProductsStart());
         try {
-            const response = await fetch(`http://localhost:4000/store/${id}/products`, {
+            const response = await fetch(`https://json-server-for-my-apps.herokuapp.com/store/${id}/products`, {
                 method:"GET"
             });
             const dataProducts = await response.json();
@@ -38,7 +38,7 @@ export const deleteProductStartThunk = (id) => {
     return async (dispatch, getState) => {
         dispatch(deleteProductStart());
         try{
-            const response = await fetch(`http://localhost:4000/products/${id}`, {
+            const response = await fetch(`https://json-server-for-my-apps.herokuapp.com/products/${id}`, {
                 method: 'DELETE'
             })
             const dataProducts = await response.json();
@@ -62,7 +62,7 @@ export const createProductStartThunk = ({ product_name, description, price, stoc
                     headers: { "Content-Type": "application/json; charset=UTF-8" },
                 body: JSON.stringify(product) 
             };
-            const res = await fetch("http://localhost:4000/products", requestOptions)
+            const res = await fetch("https://json-server-for-my-apps.herokuapp.com/products", requestOptions)
             const dataProducts = await res.json()
             dispatch(createProductSuccess(dataProducts))
                  
@@ -83,7 +83,7 @@ export const updateProductStartThunk = ({id, product_name, description, price, s
                 headers: { "Content-Type": "application/json; charset=UTF-8", },
                 body: JSON.stringify(product),
             };
-            const res = await fetch(`http://localhost:4000/products/${id}`,
+            const res = await fetch(`https://json-server-for-my-apps.herokuapp.com/products/${id}`,
                 requestOptions
             )
 

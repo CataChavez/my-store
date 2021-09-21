@@ -19,7 +19,7 @@ export const Login = () => {
   } */
   const handlerLogout = (event) => {
     event.preventDefault()
-    localStorage.removeItem('accessToken')      
+    localStorage.removeItem('accessToken')
     history.push('/')
   }
 

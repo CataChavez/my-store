@@ -10,7 +10,7 @@ export const fetchPublicProductsStartThunk = (id) => {
         const { publicProducts } = getState()
         dispatch(fetchPublicProductsStart());
         try {
-            const response = await fetch(`http://localhost:4000/store/${id}/products`, {
+            const response = await fetch(`https://json-server-for-my-apps.herokuapp.com/store/${id}/products`, {
                 method:"GET"
             });
             const dataPublicProducts = await response.json();

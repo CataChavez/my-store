@@ -15,7 +15,7 @@ export const fetchStoreStartThunk = () => {
         if ( stores.data.length > 1 ){ return }
         dispatch(fetchStoresStart());
         try {
-            const response = await fetch("http://localhost:4000/store", {
+            const response = await fetch("https://json-server-for-my-apps.herokuapp.com/store", {
                 method:"GET"
             });
             const data = await response.json();
@@ -40,7 +40,7 @@ export const updateStoreStartThunk = (store) => {
                 },
                 body: JSON.stringify(store),
             };
-            const res = await fetch(`http://localhost:4000/store/${store.id}`,
+            const res = await fetch(`https://json-server-for-my-apps.herokuapp.com/${store.id}`,
                 requestOptions
             )
             const data = await res.json()
