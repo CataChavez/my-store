@@ -53,6 +53,7 @@ export const LoginForm = ({ isLoading }) => {
             <div>
               <label className="form-label">Password</label>
               <input
+                id="password"
                 type="password"
                 name="password"
                 placeholder="abc123"
