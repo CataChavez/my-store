@@ -35,23 +35,25 @@ $ npm install
 $ npm start
 ```
 `npm install` Instala el package.json en nuestro ordenador.
-`npm start` Corre la app modo de desarrollo.\
+
+`npm start` Corre la app modo de desarrollo.
 Abre [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
-La pagina se recargará cada vez que hagas algún cambio.\
+La pagina se recargará cada vez que hagas algún cambio.
 
 #### Opcional: 
 Puedes descargar el [backend](https://github.com/CataChavez/json-server-for-deploy) de este proyecto para hacer los cambios necesarios para tu propia app y correr el servidor en local con el script `node index.js` este script disponibilizará el servidor en el puerto 4000.
 Importante: debes cambiar las rutas de consulta de este repositorio a http://localhost:4000/'ruta_segun_mi_proyecto'. 
 Encontrarás más información de como cambiar la "base de datos" en repositorio mencionado.
 
-Cuando hayas finalizado de modificar, puede correr `npm run build` el cual creará un archivo `build` folder.\ Este contendrá todo lo necesario para publicar la app en GitHub o Netlify.
-Importante: cuando hayas hecho las pruebas y tu app funcione bien, recuerda cambiar la dirección de las consultas según donde hayas desplegado el servidor (heroku u otro).
+Cuando hayas finalizado de modificar, puedes correr `npm run build`, el cual creará un archivo `build`. Este contendrá todo lo necesario para publicar la app en GitHub o Netlify.
+
+**Importante: cuando hayas hecho las pruebas y tu app funcione bien, recuerda cambiar la dirección de las consultas según donde hayas desplegado el servidor (heroku u otro).**
 
 **Ya que los productos y tiendas son ficticios, los datos que aparecen en la app, son solo para propósito de desarrollo y no representan una página oficial o representación de alguna marca. Así que por favor cambia los datos por los tuyos**
 
 
 ## En esta app fueron utilizados
-* Bootstrap(): versión 5.1.1
+* [Bootstrap](https://getbootstrap.com/): versión 5.1.1
 * [React](https://es.reactjs.org/): versión 17.0.2
 * [React Router](https://reactrouter.com/): 5.3.0 
 * [React Redux](https://react-redux.js.org/): versión 7.2.5
@@ -60,7 +62,7 @@ Importante: cuando hayas hecho las pruebas y tu app funcione bien, recuerda camb
 * [Redux Devtools extension](https://github.com/zalmoxisus/redux-devtools-extension): versión 2.13.9 (para desarrollo)
 
 ## Estado de la app
-La app se encuentra **en estado de desarrollo** por lo cual aún tiene algunos bugs que deben ser arreglados:
+La app se encuentra **en estado de desarrollo** por lo cual aún tiene algunos BUGS que deben ser arreglados:
 - La sección de Login tiene problemas de ingreso y de redirección al dashboard del propietario.
 - El Logout de la barra del dashboard realiza el retiro del token del LocalStorage, pero continúa redirigiendo al dashboard.
 - No realiza la persistencia de la id de la tienda para recargar cada vez que se vuelve al dashboard.
