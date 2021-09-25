@@ -1,13 +1,13 @@
-## Aplicación React "Emprendimientos Locales"
+## React App "My Store"
 
-La app consiste en una plataforma de tiendas, donde cada propietario puede mostrar sus productos e información de contacto, junto con ella, cada propietario puede ingresar a su tablero privado para crear, editar o eliminar productos, los cuales se pueden ver de inmediato en la plataforma pública.
+The app is a store platform, where each owner can display their products and contact information, along with it, each owner can enter their private dashboard to create, edit or delete products, which can be seen immediately on the platform public.
 
-### Para ver el deploy visita:
+### To see the deploy visit:
 
 [https://elated-minsky-7b9f62.netlify.app](https://elated-minsky-7b9f62.netlify.app)
 
-Puedes visitar cualquiera de las 6 tiendas ficticias, creadas solo para la ocasión.
-Puedes entrar en "Login" con cualquiera de estos correos ficticios:
+You can visit any of the 6 fictitious stores, created just for the occasion.
+You can enter "Login" with any of these fictitious emails:
 
 - contacto@taller.com
 - contacto@manolospizza.com
@@ -16,65 +16,64 @@ Puedes entrar en "Login" con cualquiera de estos correos ficticios:
 - contacto@cactus.com
 - contacto@vforvegan.com
 
-**Todos estos correos pueden acceder con la misma contraseña: `abc123`.**
-Si se te olvida algunos de los correos ficiticios indicados más arriba, el Login tiene un recordatorio en la casilla para que puedas acceder, no olvides escribir lo que te indica el placeholder.
+**All these emails can be accessed with the same password: `abc123`.**
+If you forget some of the fictional emails indicated above, the Login has a reminder in the box so you can access it, do not forget to write what the placeholder tells you.
 
-### ¿Cómo funciona?
+### How does it work?
 
-Se creo un servidor con la ayuda de [JSON-server](https://github.com/typicode/json-server) para el backend ocupado como módulo, este servidor fue complementado con [JSON Server Auth](https://github.com/jeremyben/json-server-auth) para incluir autentificación de usuarios y rutas de protección contra escrituras sin Login.
-Puedes ver el repositorio del backend para desarrollo de este proyecto [aquí](https://github.com/CataChavez/json-server-for-deploy).
+A server was created with the help of [JSON-server](https://github.com/typicode/json-server) for the backend occupied as a module, this server was complemented with [JSON Server Auth](https://github.com/jeremyben/json-server-auth) to include user authentication and write-protect paths without Login.
+You can see the backend repository for development of this project [here](https://github.com/CataChavez/json-server-for-deploy).
 
+The JSON-server template as a module, which also brings instructions on how to upload to Heroku can be found in this [https://github.com/jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku).
 
-La plantilla del JSON-server como modulo, que además trae las indicaciones de como subir a Heroku la puedes encontrar en este [https://github.com/jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku).
-
-### Para correr la app en entorno de desarrollo comienza con los sgts scripts:
+### To run the app in development environment run:
 ```
 $ git clone https://github.com/CataChavez/my-store
 $ cd ../path/to/the/file
 $ npm install
 $ npm start
 ```
-`npm install` Instala el package.json en nuestro ordenador.
+`npm install` Install the package.json on our computer.
 
-`npm start` Corre la app modo de desarrollo.
-Abre [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
-La pagina se recargará cada vez que hagas algún cambio.
+`npm start` Run the development mode app.
+Go to [http://localhost:3000](http://localhost:3000) to see it in the browser.
+The page will reload every time you make a change.
 
-#### Opcional: 
-Puedes descargar el [backend](https://github.com/CataChavez/json-server-for-deploy) de este proyecto para hacer los cambios necesarios para tu propia app y correr el servidor en local con el script `node index.js` este script disponibilizará el servidor en el puerto 4000.
-Importante: debes cambiar las rutas de consulta de este repositorio a http://localhost:4000/'ruta_segun_mi_proyecto'. 
-Encontrarás más información de como cambiar la "base de datos" en repositorio mencionado.
+#### Optional: 
+You can download the [backend](https://github.com/CataChavez/json-server-for-deploy) of this project to make the necessary changes for your own app and run the server locally with the script `node index.js` this script will make the server available on port 4000.
+Important: you must change the query paths for this repository to http://localhost:4000/'path_seg_my_project'.
+You will find more information on how to change the "database" in the mentioned repository.
 
-Cuando hayas finalizado de modificar, puedes correr `npm run build`, el cual creará un archivo `build`. Este contendrá todo lo necesario para publicar la app en GitHub o Netlify.
+When you're done modifying, you can run `npm run build`, which will create a` build` file. This will contain everything you need to publish the app on GitHub or Netlify.
 
-**_Importante: cuando hayas hecho las pruebas y tu app funcione bien, recuerda cambiar la dirección de las consultas según donde hayas desplegado el servidor (heroku u otro)._**
+**_Important: when your app runs without errors remember to change the direction of the queries according to the deployment paths of the server (heroku or other)._**
 
-**_Ya que los productos y tiendas son ficticios, los datos que aparecen en la app, son solo para propósito de desarrollo y no representan una página oficial o representación de alguna marca. Así que por favor cambia los datos por los tuyos._**
+**_Since the products and stores are fictitious, the data that appears in the app is for development purposes only and does not represent an official page or representation of any brand. So please change the data for yours._**
 
 
-## En esta app fueron utilizados
-* [Bootstrap](https://getbootstrap.com/): versión 5.1.1
-* [React](https://es.reactjs.org/): versión 17.0.2
-* [React Router](https://reactrouter.com/): 5.3.0 
-* [React Redux](https://react-redux.js.org/): versión 7.2.5
-* [Redux](https://es.redux.js.org/): versión 4.1.1
-* [Redux thunk](https://github.com/reduxjs/redux-thunk): versión 2.3.0
-* [Redux Devtools extension](https://github.com/zalmoxisus/redux-devtools-extension): versión 2.13.9 (para desarrollo)
+## In this app they were used
+* [Bootstrap](https://getbootstrap.com/): version 5.1.1
+* [React](https://es.reactjs.org/): version 17.0.2
+* [React Router](https://reactrouter.com/): version 5.3.0 
+* [React Redux](https://react-redux.js.org/): version 7.2.5
+* [Redux](https://es.redux.js.org/): version 4.1.1
+* [Redux thunk](https://github.com/reduxjs/redux-thunk): version 2.3.0
+* [Redux Devtools extension](https://github.com/zalmoxisus/redux-devtools-extension): version 2.13.9 (for development purpose only)
 
 ## Estado de la app
-La app se encuentra **en estado de desarrollo** por lo cual aún tiene algunos BUGS que deben ser arreglados:
-- La sección de Login tiene problemas de ingreso y de redirección al dashboard del propietario.
-- El Logout de la barra del dashboard realiza el retiro del token del LocalStorage, pero continúa redirigiendo al dashboard.
-- No realiza la persistencia de la id de la tienda para recargar cada vez que se vuelve al dashboard.
+The app is **in development stage** so it still has some BUGS that need to be fixed:
+- The Login section has login and redirection problems to the owner's dashboard.
+- The Logout of the dashboard bar performs the withdrawal of the token from the LocalStorage, but continues to redirect to the dashboard.
+- The store id is not persisted, so the dashboard will not reload when you go to the public home and then return to the dashboard.
 
-## Algunas ideas para seguir:
-#### 1. Sección usuarios públicos:
-- Implementar barra de navegación lateral con listado de tiendas y búsqueda.
-- Implementar barra de navegación lateral con listado de productos y su búsqueda.
-#### 2. Sección usuarios Propietarios:
-- Implementar Login al Navbar como menú desplegable.
-- Actualizar barra de navegación del dashboard.
-- Implementar la actualización de datos del Propietario.
-#### 3. Incorporar acceso Clientes:
-- Incorporación registro y acceso de Clientes.
-- Incorporación de sección para Cliente (resumen de compras, compra actual, actualización de datos)
+## Some ideas to follow:
+#### 1. Public users section:
+- Implement sidebar with store list and search.
+- Implement sidebar bar with a list of products and their search.
+#### 2. Users section Owners:
+- Implement Login to the Navbar as a drop-down menu.
+- Update dashboard navigation bar.
+- Implement the update of Owner data.
+#### 3. Add Client access:
+- Incorporation of registration and access of Clients.
+- Incorporation of section for Customer (summary of purchases, current purchase, data update)
