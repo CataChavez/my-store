@@ -47,9 +47,9 @@ Encontrarás más información de como cambiar la "base de datos" en repositorio
 
 Cuando hayas finalizado de modificar, puedes correr `npm run build`, el cual creará un archivo `build`. Este contendrá todo lo necesario para publicar la app en GitHub o Netlify.
 
-**Importante: cuando hayas hecho las pruebas y tu app funcione bien, recuerda cambiar la dirección de las consultas según donde hayas desplegado el servidor (heroku u otro).**
+**_Importante: cuando hayas hecho las pruebas y tu app funcione bien, recuerda cambiar la dirección de las consultas según donde hayas desplegado el servidor (heroku u otro)._**
 
-**Ya que los productos y tiendas son ficticios, los datos que aparecen en la app, son solo para propósito de desarrollo y no representan una página oficial o representación de alguna marca. Así que por favor cambia los datos por los tuyos**
+**_Ya que los productos y tiendas son ficticios, los datos que aparecen en la app, son solo para propósito de desarrollo y no representan una página oficial o representación de alguna marca. Así que por favor cambia los datos por los tuyos._**
 
 
 ## En esta app fueron utilizados
@@ -68,13 +68,13 @@ La app se encuentra **en estado de desarrollo** por lo cual aún tiene algunos B
 - No realiza la persistencia de la id de la tienda para recargar cada vez que se vuelve al dashboard.
 
 ## Algunas ideas para seguir:
-1. Sección usuarios públicos:
+#### 1. Sección usuarios públicos:
 - Implementar barra de navegación lateral con listado de tiendas y búsqueda.
 - Implementar barra de navegación lateral con listado de productos y su búsqueda.
-2. Sección usuarios Propietarios:
+#### 2. Sección usuarios Propietarios:
 - Implementar Login al Navbar como menú desplegable.
 - Actualizar barra de navegación del dashboard.
 - Implementar la actualización de datos del Propietario.
-3. Incorporar acceso Clientes:
+#### 3. Incorporar acceso Clientes:
 - Incorporación registro y acceso de Clientes.
 - Incorporación de sección para Cliente (resumen de compras, compra actual, actualización de datos)
